@@ -1,0 +1,10 @@
+pt:
+  activerecord:
+    models:
+      brand:
+        one: Marca
+        other: Marcas
+    attributes:
+      brand:
+        name: "Nome"
+        picture: "Foto"

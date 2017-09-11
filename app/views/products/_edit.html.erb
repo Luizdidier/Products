@@ -1,0 +1,30 @@
+      <p class='form-p' style='padding-left: 5%'>Atualizar Produto</p>
+      <%= form_with(model: product, local: true, html: { multipart: true }) do |form| %>
+      <%= form.label 'Nome:' %>
+      <br>
+      <%= form.text_field :name, id: :product_name %>
+      <br>
+      <%= form.label 'Preço:'%>
+      <br>
+      <%= form.text_field :price, id: :product_price %>
+      <br>
+      <%= form.label 'Marca:' %>
+      <br>
+      <%= form.collection_select( :brand_id, Brand.all, :id, :name, {include_blank: true}) %>
+      <br>
+      <%= form.label 'Categoria:' %>
+      <br>
+      <%= form.collection_select( :category_id, Category.all, :id, :name, {include_blank: true}) %>
+      <br>
+      <%= form.label 'Foto:'%> 
+      <br>
+      <%= form.file_field :picture %>
+      <br>
+      <div class="wrapper">
+        <span class="group-btn">     
+          <%= form.submit 'Atualizar Produto', :class => 'btn btn-success' %>
+          <%= link_to 'Voltar', products_path, :class => 'btn btn-warning' %>
+          <% end %>
+        </div>
+      </span>
+      

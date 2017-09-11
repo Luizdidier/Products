@@ -1,0 +1,26 @@
+<body class='bg-sess'>
+  <div class='container-fluid' style='margin-top: 15%' %>
+  <div class='row' style=' margin-left: auto; margin-right: auto'>
+      <div class='col-lg-4 col-md-4 col-sm-4 form-login-border' align='center' style=' padding-bottom: 1%; float:none; margin: 0 auto;'>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <% flash.each do |name, msg| %>
+        <strong style='color: red'><%= content_tag :div, msg %></strong>
+        <% end %>
+        <h4><strong>Seja, Bem-Vindo.</strong></h4>
+        <h5><strong>Email:</strong></h5>
+        <%= f.email_field :email, autofocus: true %>
+      </br>
+      <h5><strong>Senha:</strong></h5>
+      <%= f.password_field :password, autocomplete: "off" %>
+      <div class="wrapper">
+        <span class="group-btn">     
+         <%= render "users/shared/links" %>
+         <span class="btn-md"><%= f.submit "Entre", :class => 'btn btn-success' %> <i class="fa fa-sign-in"></i></span>
+       </div>
+     </span>
+     <% end %> 
+     </div>
+   </div>
+ </div>
+</div>
+</body>

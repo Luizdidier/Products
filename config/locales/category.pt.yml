@@ -1,0 +1,13 @@
+pt:
+  activerecord:
+    models:
+      category:
+        one: Categoria
+        other: Categorias
+    attributes:
+      category:
+        notice: 'Atualizado com sucesso'
+        name: "Nome"
+        picture: "Foto"
+    product:
+    notice: 'Editado com sucesso'

@@ -1,0 +1,17 @@
+    <p class='form-p' style='padding-left: 5%'>Cadastro Categoria</p>
+    <%= form_with(model: category, local: true, html: { multipart: true }) do |form| %>
+    <%= form.label 'Nome:' %>
+    <br>
+    <%= form.text_field :name, id: :product_name %>
+    <br>
+    <%= form.label 'Foto:'%> 
+    <br>
+    <%= form.file_field :picture %>
+    <br>
+    <div class="wrapper">
+      <span class="group-btn">     
+        <%= form.submit 'Cadastrar Categoria', :class => 'btn btn-success' %>
+        <%= link_to 'Voltar', categories_path, :class => 'btn btn-warning' %>
+      </div>
+    </span>
+    <% end %> 

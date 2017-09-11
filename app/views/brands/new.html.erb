@@ -1,0 +1,44 @@
+<body class='bg-new'>
+	 <div class='container-fluid'>
+        <div class='row' align='center'>    
+          <nav class='navbar menu' >
+            <ul>
+              <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2" style="margin-left: -4%"><a href='#'>Produtos</a>
+                <ul>
+                  <li><%= link_to 'Cadastrar', new_product_path %></li>
+                  <li><%= link_to 'Ver todos', products_path %></li>
+                </ul>
+              </li>
+              <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2" style="margin-left: -2%"><a href='#'>Marcas</a>
+                <ul>
+                  <li><%= link_to 'Cadastrar', new_brand_path %></li>
+                  <li><%= link_to 'Ver todos', brands_path %></li>
+                </ul></li>
+                <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2" style="margin-left: -2%" ><a href='#'>Categorias</a>
+                  <ul>
+                    <li><%= link_to 'Cadastrar', new_category_path %></li>
+                    <li><%= link_to 'Ver todos', categories_path %></li>
+                  </ul>
+                </li>
+                <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2" style="margin-left: -2%">
+                  <%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
+                
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+		<div class='container-fluid' style='margin-top: 0%' %>
+			<ul class='errors'>
+				<% @brand.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+			<div class='row'>
+				<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4 form-border' align='center' style=' padding-bottom: 1%; float:none; margin: 0 auto;'>
+					<%= render 'form', brand: @brand %>
+				</div>
+			</div>
+		</div>
+	</body>

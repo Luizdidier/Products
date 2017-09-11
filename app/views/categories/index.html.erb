@@ -1,0 +1,89 @@
+<body >
+<!-- Navbar -->
+         <div class='container-fluid'>
+        <div class='row' align='center'>    
+          <nav class='navbar menu' >
+            <ul>
+              <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2" style="margin-left: -4%"><a href='#'>Produtos</a>
+                <ul>
+                  <li><%= link_to 'Cadastrar', new_product_path %></li>
+                  <li><%= link_to 'Ver todos', products_path %></li>
+                </ul>
+              </li>
+              <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2" style="margin-left: -2%"><a href='#'>Marcas</a>
+                <ul>
+                  <li><%= link_to 'Cadastrar', new_brand_path %></li>
+                  <li><%= link_to 'Ver todos', brands_path %></li>
+                </ul></li>
+                <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2" style="margin-left: -2%" ><a href='#'>Categorias</a>
+                  <ul>
+                    <li><%= link_to 'Cadastrar', new_category_path %></li>
+                    <li><%= link_to 'Ver todos', categories_path %></li>
+                  </ul>
+                </li>
+                <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2" style="margin-left: -2%">
+                  <%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
+                
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<!-- Search Form -->
+  <div class="container-fluid">
+    <h2 style='text-align: center'>Categorias</h2>
+    <div class='row' align='center'>
+      <div class='input-group' style="padding-right: 7%;">
+       <span class='col-sm-3 col-xs-3 col-lg-3 col-md-3'>
+
+       </span>
+       <span class='col-sm-3 col-xs-3 col-lg-3 col-md-3 input-group-btn' style='min-width: 60%;' >
+        <%= form_tag(categories_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Procure pelo nome..." , :class =>'form-control' %>
+        <span style='padding-left: 3%'>
+          <%= submit_tag "Procure", :class => 'btn btn-primary'  %>
+          <% end %>
+        </span>
+      </span>
+      <span class='col-sm-3 col-xs-3 col-lg-3 col-md-3'>
+
+      </span>
+      <span class='col-sm-3 col-xs-3 col-lg-3 col-md-3'>
+
+      </span>
+      <br>
+    </span>
+  </div>
+</div>
+</div>
+<!-- Table -->
+<div class="table-responsive" style="width: 70%; margin-left: auto; margin-right: auto;">
+ <table class="table table-striped">
+  <thead>
+    <tr>
+      <th >Foto</th>
+      <th >Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+    <tr>
+      <td><%= image_tag category.picture.url(:thumb) %></td>
+      <td style='padding-top: 2%'><%= category.name %></td>
+      <td class='text-right'>
+        <%= link_to 'Ver', category_path(category), :class => 'btn btn-info' %>
+        <%= link_to 'Editar', edit_category_path(category), :class => 'btn btn-warning' %>
+        <%= link_to 'Deletar', category, method: :delete, data: { confirm: 'Tem certeza? ' }, :class => 'btn btn-danger' %>
+        
+      </td>
+      <%end%>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'Nova categoria', new_category_path, :class => 'btn btn-primary' %>
+</div>
+</div>
+</div>
+
