@@ -1,20 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html ng-app='myApp'>
 
 <head>
   <title>Projeto</title>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <link rel="stylesheet" type="text/css" href="/home/luiz/estrutura-master/app/assets/stylesheets/style.css.scss">
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application' %>
+  <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/style.css.scss">
   
-
 </head>
 
 <body>
-
   <%= yield %>
 </body>
 </html>

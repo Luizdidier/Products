@@ -2,7 +2,10 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :set_category, only: [:new, :show, :edit, :update, :destroy]
   before_action :set_brand, only: [:new, :show, :edit, :update, :destroy]
+  protect_from_forgery except: :index
   before_action :authenticate_user!
+
+
   # GET /products
   # GET /products.json
   def index
@@ -12,20 +15,24 @@ class ProductsController < ApplicationController
     else
       @products = Product.all.order('created_at DESC')
     end
+
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+
   end
 
   # GET /products/new
   def new
     @product = Product.new
+
   end
 
   # GET /products/1/edit
   def edit
+
   end
 
   # POST /products

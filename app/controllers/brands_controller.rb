@@ -1,6 +1,9 @@
 class BrandsController < ApplicationController
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery except: :index
   before_action :authenticate_user!
+
+
   # GET /brands
   # GET /brands.json
   def index
@@ -24,13 +27,13 @@ class BrandsController < ApplicationController
 
   # GET /brands/1/edit
   def edit
+   
   end
 
   # POST /brands
   # POST /brands.json
   def create
     @brand = Brand.new(brand_params)
-
     respond_to do |format|
       if @brand.save
         format.html { redirect_to @brand, notice: 'Brand was successfully created.' }
@@ -60,8 +63,8 @@ class BrandsController < ApplicationController
   # DELETE /brands/1.json
   def destroy
     @brand.destroy
-    @products = Product.all
-    puts @brand
+    render json: @brands
+    @products = Product.alls
     respond_to do |format|
       format.html { redirect_to brands_url, notice: 'Brand was successfully destroyed.' }
       format.json { head :no_content }

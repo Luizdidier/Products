@@ -1,6 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery except: :index
   before_action :authenticate_user!
+
+
   # GET /categories
   # GET /categories.json
   def index
@@ -30,7 +33,6 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Category was successfully created.' }

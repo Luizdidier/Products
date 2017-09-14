@@ -11,4 +11,7 @@ class Category < ApplicationRecord
 	def self.search(search)
 		where("name LIKE ?", "%#{search}%") 
 	end
+	def picture_url
+		picture.url(:thumb)
+	end
 end
