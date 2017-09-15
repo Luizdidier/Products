@@ -64,7 +64,7 @@ class BrandsController < ApplicationController
   def destroy
     @brand.destroy
     render json: @brands
-    @products = Product.alls
+    @products = Product.all
     respond_to do |format|
       format.html { redirect_to brands_url, notice: 'Brand was successfully destroyed.' }
       format.json { head :no_content }

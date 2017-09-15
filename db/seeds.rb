@@ -5,14 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-50.times do 
-	brand = Brand.create({
-		name: Faker::DragonBall.character,
-		picture: UiFaces.woman
-		})
-end
+
 50.times do
-	category = Category.create({
+	product = Product.create({
 		name: Faker::GameOfThrones.character,
 		picture: Faker::Avatar.image
 		})
